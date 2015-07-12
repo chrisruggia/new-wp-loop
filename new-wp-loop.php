@@ -5,12 +5,12 @@ $args = array(
 	'posts_per_page' => 1
 	);
 
-	$temp = $wp_query; // set the current loop aside in a placeholder variable
-	$wp_query= null; // clear the current loop
-	$wp_query = new WP_Query(); // initialize query
-	$wp_query->query($args); // what to get 
+$temp = $wp_query; // set the current loop aside in a placeholder variable
+$wp_query= null; // clear the current loop
+$wp_query = new WP_Query(); // initialize query
+$wp_query->query($args); // what to get 
 
-	while ( $wp_query->have_posts() ) : $wp_query->the_post(); ?>
+while ( $wp_query->have_posts() ) : $wp_query->the_post(); ?>
 
 	<?php // do stuff with the post now! ?>
 	<div>
@@ -20,10 +20,10 @@ $args = array(
 		</div>
 	</div>
 
-	<?php endwhile; // end the loop
+<?php endwhile; // end the loop
 
-	$wp_query = null; // clear the new loop
-	$wp_query = $temp; // get the current loop back from its hiding place
-	wp_reset_query(); // reset
+$wp_query = null; // clear the new loop
+$wp_query = $temp; // get the current loop back from its hiding place
+wp_reset_query(); // reset
 
 ?>
